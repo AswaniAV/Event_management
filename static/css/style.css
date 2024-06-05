@@ -1,0 +1,7 @@
+.work img {
+    opacity: 1.0;
+  }
+  
+.work img:hover {
+    opacity: 0.5;
+  }

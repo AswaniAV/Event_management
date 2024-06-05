@@ -1,0 +1,421 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!--style.css from static/css/style.css -->
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    {% block title%}
+    <title>Home</title>
+    {% endblock%}
+  </head>
+  <body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">EVENT PROJECT</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                  <li class="nav-item px-2">
+                      <a class="nav-link " href="{% url 'home' %}">Home</a>
+                  </li>
+                  <li class="nav-item px-2">
+                      <a class="nav-link" href="{% url 'about' %}">About us</a>
+                  </li>
+                  <li class="nav-item px-2">
+                      <a class="nav-link" href="{% url 'events' %}">Events</a>
+                  </li>
+                  <li class="nav-item px-2">
+                      <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                  </li>
+              </ul>
+             
+              <ul class="navbar-nav ">
+                {% if user.is_authenticated  %}
+                <li class="nav-item ">
+                  <p class="text-white p-2"> hello, {{user.username}}</p>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="{% url 'logout' %}">logout</a>
+                </li>
+                {% else %} 
+                  <li class="nav-item px-2">
+                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+                  </li>
+                  <li class="nav-item px-2">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+                {% endif %}
+              </ul>  
+          </div>
+      </div>
+  </nav>
+  
+  <div class="">
+    <!-- carousel setting -->
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+  
+        <div class="carousel-item active">
+          <img src="{% static 'images/carousel11.jpg'%}" class="d-block w-100" alt="..." style="height: 550px;">
+            <div class="carousel-caption d-none d-md-block mt-0">
+              <div class="row">
+                <div class="col">
+                </div>
+                <div class="col text-start">
+                  <h1 class=" mb-4">The UK’s Best Event Management Agency for Corporate</h1>
+                  <p class="mb-4">A integer hac in id. Mollis consequat, consectetur egestas in quam. 
+                    Id velit eleifend tincidunt varius sagittis sed ut. Pretium, 
+                    risus ac augue arcu ullamcorper semper integer.</p>
+                  <button class="mb-5 btn btn-outline-light"><a href="#about" class="text-decoration-none text-warning">Learn More</a> </button>
+                </div>
+              </div>
+           </div>
+        </div>
+  
+        <div class="carousel-item">
+          <img src="{% static 'images/carousel22.jpg'%}" class="d-block w-100" alt="..." style="height: 550px;">
+          <div class="carousel-caption d-none d-md-block mt-0">
+            <div class="row">
+              <div class="col">
+              </div>
+              <div class="col text-start">
+                <h1 class=" mb-4">The UK’s Best Event Management Agency for Corporate</h1>
+                <p class="mb-4">A integer hac in id. Mollis consequat, consectetur egestas in quam. 
+                  Id velit eleifend tincidunt varius sagittis sed ut. Pretium, 
+                  risus ac augue arcu ullamcorper semper integer.</p>
+                  <button class="mb-5 btn btn-outline-light"><a href="#about" class="text-decoration-none text-warning">Learn More</a> </button>
+              </div>
+            </div>
+         </div>
+        </div>
+  
+  
+        <div class="carousel-item">
+          <img src="{% static 'images/carousel-3.jpg'%}" class="d-block w-100" alt="..." style="height: 550px;">
+          <div class="carousel-caption d-none d-md-block mt-0">
+            <div class="row">
+              <div class="col">
+              </div>
+              <div class="col text-start">
+                <h1 class=" mb-4 text-light">The UK’s Best Event Management Agency for Corporate</h1>
+                <p class="mb-4">A integer hac in id. Mollis consequat, consectetur egestas in quam. 
+                  Id velit eleifend tincidunt varius sagittis sed ut. Pretium, 
+                  risus ac augue arcu ullamcorper semper integer.</p>
+                  <button class="mb-5 btn btn-outline-light"><a href="#about" class="text-decoration-none text-warning">Learn More</a> </button>
+              </div>
+            </div>
+         </div>
+        </div>
+  
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+    <!-- carousel setting -->
+
+
+  <!-- Aboutus -->
+<div class="container  mt-5">
+    <div class="row">
+     <div class="col-sm-6">
+      <div class="col-sm-10">
+        <h6 class="text-danger" id="about">ABOUT US</h6>
+        <h1 class="mt-3">We Help Corporate to Manage Event</h1>
+        <p class="mt-3 fs-6">Sit vestibulum nec nam porttitor nibh. Urna at faucibus aliquet dolor.
+         Facilisis id diam pellentesque et odio. Potenti sagittis massa lorem arcu sed diam.
+          Consectetur elit sit in donec vitae blandit tincidunt eu.
+         Sed nulla vel diam commodo. Placerat cursus sed blandit eu odio.</p>
+         
+         <div class="row p-1 bg-light mt-3 mb-2">
+           <div class="col text-center text-secondary">
+                <h1>1995</h1>
+                <p>ESTABLISHED</p>
+           </div>
+           <div class="col text-center text-secondary">
+                <h1>100</h1>
+                <p>EMPLOYEE</p>
+           </div>
+         </div>
+
+      </div>
+    </div>
+    
+    <div class="col-sm-6 ">
+      <img src="{% static 'images/about.jpg'%}" class="img-fluid" alt="aboutpic" w-100 h-100>
+    </div>
+  </div>
+</div>
+  <!-- Aboutus -->
+
+
+ <!-- logos-->
+<div class="container mt-5">
+  <div class="row  mb-3 ">
+    <div class="col-sm mt-5"><img src="{% static 'images/client-logo-1.png'%}" alt="..." class="img-thumbnail p-4 shadow p-3 mb-5 bg-white rounded w-100"></div>
+    <div class="col-sm  mt-5"><img src="{% static 'images/client-logo-2.png'%}" alt="..." class="img-thumbnail p-4 shadow p-3 mb-5 bg-white rounded w-100" ></div>
+    <div class="col-sm  mt-5"><img src="{% static 'images/client-logo-3.png'%}" alt="..." class="img-thumbnail p-4 shadow p-3 mb-5 bg-white rounded w-100"></div>
+    <div class="col-sm  mt-5"><img src="{% static 'images/client-logo-4.png'%}" alt="..." class="img-thumbnail p-4 shadow p-3 mb-5 bg-white rounded w-100"></div>
+    <div class="col-sm  mt-5"><img src="{% static 'images/client-logo-5.png'%}" alt="..." class="img-thumbnail p-4 shadow p-3 mb-5 bg-white rounded w-100"></div>
+    <div class="col-sm  mt-5"><img src="{% static 'images/client-logo-6.png'%}" alt="..." class="img-thumbnail p-4 shadow p-3 mb-5 bg-white rounded w-100"></div>
+  </div>
+</div>
+  <!-- logos-->
+
+<!-- portfolio -->
+  <div class=" work container mt-5">
+    <div class="row justify-content-between">
+    <div class="col-sm-4">
+      <h6 class="text-danger">PORTFOLIO</h6>
+      <h2>Featured Works</h2>
+    </div>
+    <div class="col-sm-4">
+      <button class=" mt-4 btn btn-outline-dark float-end">VIEW ALL WORK</button>
+    </div>
+   </div>
+
+   <!--first row -->
+
+   <div class="my-5">
+     <div class="row text-start ">
+    <div class="col-sm ">
+        <img src="{% static 'images/event-work-1.jpg'%}" class="img-fluid" alt="...">
+        <div class="p-3">
+            <h5 class="my-3 border-start border-danger border-3 ps-3">Hexatron Factory Open Day</h5>
+        </div>
+    </div>
+
+    <div class="col-sm">
+        <img src="{% static 'images/event-work-2.jpg'%}" class="img-fluid" alt="...">
+        <div class="p-3">
+            <h5 class="my-3 border-start border-danger border-3 ps-3">Eroforce Global Product Launch</h5>
+        </div>
+    </div>
+</div>
+
+<!-- second row -->
+   <div class="row text-start ">
+    <div class="col-sm">
+        <img src="{% static 'images/event-work-3.jpg'%}" class="img-fluid" alt="...">
+        <div class="p-3">
+            <h5 class="my-3 border-start border-danger border-3 ps-3">APA Classic Company Picnic</h5>
+        </div>
+    </div>
+
+    <div class="col-sm">
+        <img src="{% static 'images/event-work-4.jpg'%}" class="img-fluid" alt="...">
+        <div class="p-3">
+            <h5 class="my-3 border-start border-danger border-3 ps-3">Delican Energy Press Event</h5>
+        </div>
+    </div>
+ </div>
+</div>
+</div>  
+<!-- portfolio -->
+
+<!-- testimonials -->
+
+<div class="container text-center my-5">
+  <h6 class="text-danger">TESTIMONIAL</h6>
+  <h2>What Our Client Say</h2>
+  <p class="pt-4">Lobortis arcu at suspendisse arcu egestas lectus purus magna interdum aliquam scelerisque.</p>
+  <p>egestas lectus purus magna interdum aliquam scelerisque.</p>
+
+  <div class="row text-start my-5">
+    <div class="col-sm-6 ">
+      <div class="row">
+        <div class="col-sm-4 ">
+          <img src="{% static 'images/woman-client-1.jpg'%}" class="img-fluid " alt="...">
+          
+        </div>
+         <div class="col-sm">
+           <img src="{% static 'images/quotes.png'%}" alt="" width="15" height="15" class="my-2">
+            <p class="py-3">Ante varius at tortor auctor dui mi eros auctor consectetur cras velit, 
+              neque et tellus nulla viverra natoque aliquam,
+               malesuada viverra adipiscing diam eu auctor id tellus.</p>
+            <h6>MARY KATE</h6>
+         </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-4 ">
+          <img src="{% static 'images/woman-client-2.jpg'%}" class="img-fluid " alt="...">
+        </div>
+         <div class="col-sm">
+          <img src="{% static 'images/quotes.png'%}" alt="" width="15" height="15" class="my-2">
+            <p class="py-3">Ante varius at tortor auctor dui mi eros auctor consectetur cras velit, 
+              neque et tellus nulla viverra natoque aliquam,
+               malesuada viverra adipiscing diam eu auctor id tellus.</p>
+            <h6>ANNA GRACE</h6>
+         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row text-start mt-1">
+    <div class="col-sm-6 ">
+      <div class="row">
+        <div class="col-sm-4 ">
+          <img src="{% static 'images/man-client-1.jpg'%}" class="img-fluid " alt="..." >
+        </div>
+         <div class="col-sm">
+           <img src="{% static 'images/quotes.png'%}" alt="" width="15" height="15" class="my-2">
+            <p class="py-3">Ante varius at tortor auctor dui mi eros auctor consectetur cras velit, 
+              neque et tellus nulla viverra natoque aliquam,
+               malesuada viverra adipiscing diam eu auctor id tellus.</p>
+            <h6>BILLY JOE</h6>
+         </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-4 ">
+          <img src="{% static 'images/man-client-2.jpg'%}" class="img-fluid " alt="...">
+        </div>
+         <div class="col-sm">
+          <img src="{% static 'images/quotes.png'%}" alt="" width="15" height="15" class="my-2">
+            <p class="py-3">Ante varius at tortor auctor dui mi eros auctor consectetur cras velit, 
+              neque et tellus nulla viverra natoque aliquam,
+               malesuada viverra adipiscing diam eu auctor id tellus.</p>
+            <h6>JOHN PETERSON</h6>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- testimonials -->
+
+<!-- our services -->
+<div class="container ">
+  <div class="row text-center mt-5">
+    <div class="col-sm-8 mx-auto">
+     <h6 class="text-danger">OUR SERVICES</h6>
+     <h2 class="py-2">Corporate Event Management</h2>
+     <p class="py-2">Orci, gravida at dolor penatibus praesent. Id ac nunc nunc elementum vitae nunc cursus. 
+      Nunc cras facilisis fermentum elementum, suspendisse augue dolor.</p>
+      <button type="button" class="mb-5 btn btn-outline-dark fs-6">VIEW ALL SERVICES</button>
+    </div>
+  
+   <!-- service first row -->
+  <div class="row text-start no-gutters">
+    <div class="col-sm">
+        <img src="{% static 'images/event-service-1.jpg'%}" class="img-fluid w-100" alt="..." >
+        <div class="p-3">
+            <h5 class="my-3 border-start border-danger border-3 ps-3">Full-Service Production</h5>
+            <p class="">Tempor sit dictum volutpat tortor. Mauris eleifend commodo mi pharetra aliquam sed. Commodo odio quis neque.</p>
+        </div>
+    </div>
+
+    <div class="col-sm">
+        <img src="{% static 'images/event-service-2.jpg'%}" class="img-fluid w-100" alt="...">
+        <div class="p-3">
+            <h5 class="my-3 border-start border-danger border-3 ps-3">Event Management</h5>
+            <p class="">Donec lectus maecenas odio pretium erat. Sed netus sit amet, fames fermentum. Sed in nulla a nisl leo..</p>
+        </div>
+    </div>
+
+    <div class="col-sm">
+        <img src="{% static 'images/event-service3.jpg'%}" class="img-fluid w-100" alt="...">
+        <div class="p-3">
+            <h5 class="my-3 border-start border-danger border-3 ps-3">Food and Beverages</h5>
+            <p class="">Habitant mauris, est massa dignissim nulla et porttitor erat mauris sed platea morbi tortor dignissim cursus.</p>
+        </div>
+    </div>
+</div>
+
+    <!-- services second  -->
+  <div class="row text-start">
+    <div class="col-sm mb-5">
+     <img src="{% static 'images/event-service-3.jpg'%}" class="img-fluid w-100" alt="...">
+      <div class="p-3">
+        <h5 class=" my-3  border-start border-danger border-3 ps-3">Live Entertainment</h5>
+        <p class="">Amet elementum sed et lectus feugiat sagittis, quam nunc eget nec mauris a habitant ut pellentesque..</p>
+      </div>
+     </div>
+
+
+    <div class="col-sm mb-5">
+     <img src="{% static 'images/service-4.jpg'%}" class="img-fluid w-100" alt="...">
+     <div class="p-3">
+       <h5 class=" my-3  border-start border-danger border-3 ps-3">Destination Management</h5>
+        <p class="">Auctor vitae cras sem sagittis, sit arcu, libero consectetur scelerisque tristique ut donec et ipsum quis.</p>
+     </div>
+    </div>
+
+    <div class="col-sm mb-5">
+     <img src="{% static 'images/service-5.jpg'%}" class="img-fluid w-100" alt="...">
+     <div class="p-3">
+       <h5 class=" my-3  border-start border-danger border-3 ps-3">Food and Beverages</h5>
+       <p class="">Habitant mauris, est massa dignissim nulla et porttitor erat mauris sed 
+        platea morbi tortor dignissim cursus.</p>
+     </div>
+    </div>
+ </div>
+</div>
+</div>
+<!-- our services -->
+
+
+<!-- background image -->
+<div class="">
+  <div id="carouselExampleDark" class="carousel carousel-dark slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="{% static 'images/carousel11.jpg'%}" class="d-block w-100 " alt="..." style="max-height: 80vh;">
+        <div class="carousel-caption d-none d-md-block text-white">
+         
+          <div class="row ">
+            <div class="col text-center align-top">
+              <h1 class="mb-5">Let's Make Your Event Memorable!</h1>
+              <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, 
+                luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+              <button class="mb-5 btn btn-outline-light">GET A QUOTE</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- background image -->
+
+<!-- footer -->
+<div class="">
+  <footer class=" text-center text-lg-start text-white bg-dark">
+    <!-- Copyright -->
+    <div class="text-center p-3" >
+      © 2018 Copyright:
+      <a class="text-secondary" href="#">EventManagement.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</div>
+  </body>
+</html>
+

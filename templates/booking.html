@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title%}<title>booking </title>{% endblock%}
+{% block content %}
+<div class="container">
+  <h3 class="my-4 text-center">How much money can you really save?</h3>
+    <p class="my-4 text-center fs-6"> There is no actual comparison in ticketing, but we run the numbers anyway. 
+      Pricing is based on EventBookings' 
+      standard ticketing fee. The number of events considered is 4 events per year.</p>
+      <h5 class="my-3 text-center">Booking</h5>
+  <div class="card mx-auto text-center py-4  shadow p-3 mb-5 bg-body rounded" style="width:28rem;">
+    <div class="card-body">
+      {%for message in messages%}
+      <p class="mb-3">{{message}}</p>
+      {% endfor %}
+      <form  method="post" style="font-size: small;">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="Submit btn btn-primary btn-sm">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock%}
